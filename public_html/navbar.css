@@ -1,0 +1,17 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+background-color: #428bca;
+}
+
+.navbar-header {
+color: white;
+}
+
+.en_blanc {
+color: white;
+}
