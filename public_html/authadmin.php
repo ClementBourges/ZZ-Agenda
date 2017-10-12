@@ -17,7 +17,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand"><p class="en_blanc">ZZAgenda</p></a>
+<a class="navbar-brand"><p class="en_blanc">ZZAgenda</p></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -33,24 +33,35 @@
     </ul>
   </div>
 </nav>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Un évènement</h1>      
-    <p>Description de l'évènement</p>
-  </div>
-</div>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Un autre évènement</h1>      
-    <p>Description de l'évènement</p>
-  </div>
-</div>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>n-ième évènement</h1>      
-    <p>Description de l'évènement</p>
-  </div>
-</div>
+
+<div class="container">
+
+      <form action="resultat.php" method="post" class="form-signin">
+        <h2 class="form-signin-heading">Administration</h2>
+        <label for="inputEmail" class="sr-only">Login</label>
+        <input name="login" class="form-control" placeholder="Login" required autofocus>
+        <label for="inputPassword" class="sr-only">Mot de Passe</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Se souvenir de moi
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrer dans l'espace admin</button>
+      </form>
+	
+<?php
+
+
+$_POST['login'];
+$_POST['password'];
+
+
+
+?>	
+	
+    </div> <!-- /container -->
+
 <footer class="footer">
      <div class="container">
         	<div class="text-center center-block">

@@ -67,7 +67,7 @@ $_POST['password'];
         	<div class="text-center center-block">
                 	<a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social"></i></a>
 	            	<a href="https://maps.google.fr/"><i class="fa fa-map-marker fa-3x social"></i></a>
-	            	<a href="https://www.isima.fr/~clbourges1/login.html"><i class="fa fa-lock fa-3x social"></i></a>
+	            	<a href="https://www.isima.fr/~clbourges1/authadmin.php"><i class="fa fa-lock fa-3x social"></i></a>
 		</div>
 	</div>
  </footer>

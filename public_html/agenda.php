@@ -34,22 +34,40 @@
   </div>
 </nav>
 
+<div class="panel-group">
 <?php
-$fic=fopen("./events.txt", "r");
+$fich=fopen("./events.txt", "r");
 $i=0;
-while ($i<3)
+while (!feof($fich))
 	{
-	$titre=fgets($fic);
+	$ligne=fgets($fich);
+	if(strlen($ligne)>1)
+	{
+		$tableau=explode(";",$ligne);
 	
-	$i=$i+1;
-	echo'<div class="jumbotron">
-  <div class="container text-center">
-    <h1>'; 
-	echo $titre;
-	 echo'</h1>      
-    <p>Description de l\'évènement</p>
-  </div>
-</div>';
+		$i=$i+1;
+		echo'
+		<div class="panel panel default">
+			<div class="panel-heading"><h2><i class="fa fa-clock-o" aria-hidden="true"></i> '.$tableau[1]."  ".$tableau[0].'</h2></div>
+	 		<div class="panel-body"><h4>'.$tableau[2].'</h4></div>
+			<div class="panel-footer">
+				<ul class = "list-group">
+      					<li class = "list-group-item"> <i class="fa fa-map-marker"></i>
+					<a href="https://www.google.fr/maps/place/'.$tableau[3].'">'.$tableau[3].'</a></li>';
+					
+					if(strlen($tableau[4])>1)
+					{
+					echo'
+					<li class = "list-group-item"> <i class="fa fa-microphone" aria-hidden="true"></i>
+						<a href="https://www.google.fr/search?q='.$tableau[4].'">'.$tableau[4].'</li>
+					';
+					}
+				echo'
+				</ul>
+			</div>
+		</div>
+			';
+	}
 	}
 	fclose($fic);	
 ?>
@@ -61,7 +79,7 @@ while ($i<3)
         	<div class="text-center center-block">
                 	<a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social"></i></a>
 	            	<a href="https://maps.google.fr/"><i class="fa fa-map-marker fa-3x social"></i></a>
-	            	<a href="https://www.isima.fr/~clbourges1/login.html"><i class="fa fa-lock fa-3x social"></i></a>
+	            	<a href="https://www.isima.fr/~clbourges1/authadmin.php"><i class="fa fa-lock fa-3x social"></i></a>
 		</div>
 	</div>
  </footer>
