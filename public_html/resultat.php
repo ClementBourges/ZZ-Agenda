@@ -8,7 +8,7 @@
 function Auth ($log,$pass)
 {
 	$bool=0;
-	$fic=fopen("./logpass.txt", "r");
+	$fic=fopen("./db/logpass.txt", "r");
 	$logpass=$log.";".$pass."";
 	while (!feof($fic) AND $bool==0)
 	{
