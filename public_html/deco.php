@@ -11,8 +11,12 @@
 
 	$_SESSION['U']=0;
 	$_SESSION['A']=0;
-	echo "Déconnexion réussie";
 ?>
-<a href="./index.php"> <p>Retour à l'écran de connexion</p></a>
+<?php include('./header.php'); ?>
+<a href="./index.php"> <h2>Retour à l'écran de connexion</h2></a>
+
+<?php
+include("footer.php");
+?>
 </body>
 </html>

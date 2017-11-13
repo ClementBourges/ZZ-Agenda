@@ -1,9 +1,9 @@
-<?php include('header.php'); ?>
+<?php include('./header_deco.php'); ?>
 
 <div class="panel-group">
 <?php
 
-if($_SESSION['U']==1)
+if($_SESSION['U']==1 || $_SESSION['A']==1)
 {
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;

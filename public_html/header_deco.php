@@ -36,5 +36,8 @@
             </ul>
         </li>
     </ul>
+	<ul class="nav navbar-nav navbar-right">
+		    <a href="./deco.php"> <h3 class="en_blanc">Déconnexion</h3></a>
+	</ul>
  </div>
 </nav>
