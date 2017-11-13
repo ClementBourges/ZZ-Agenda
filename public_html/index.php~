@@ -1,12 +1,11 @@
 <?php
-include("./header.php");
+include("header.php");
 ?>
-
 
 <div class="container">
 
-      <form action="res_auth_admin.php" method="post" class="form-signin">
-        <h2 class="form-signin-heading">Administration</h2>
+      <form action="res_auth_user.php" method="post" class="form-signin">
+        <h2 class="form-signin-heading">Se connecter</h2>
         <label for="inputEmail" class="sr-only">Login</label>
         <input name="login" class="form-control" placeholder="Login" required autofocus>
         <label for="inputPassword" class="sr-only">Mot de Passe</label>
@@ -16,20 +15,21 @@ include("./header.php");
             <input type="checkbox" value="remember-me"> Se souvenir de moi
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrer dans l'espace admin</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
       </form>
-</div>
+	
 <?php
-
 
 $_POST['login'];
 $_POST['password'];
 
-
-
 ?>	
 	
+</div> <!-- /container -->
+
 
 <?php
 include("footer.php");
 ?>
+
+

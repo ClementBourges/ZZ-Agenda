@@ -2,7 +2,6 @@
 
 <div class="panel-group">
 <?php
-
 if($_SESSION['U']==1)
 {
 	$fich=fopen("./db/events.txt", "r");
