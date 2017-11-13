@@ -13,6 +13,6 @@
 	$_SESSION['A']=0;
 	echo "Déconnexion réussie";
 ?>
-<a href="https://www.isima.fr/~clbourges1/index.php"> <p>Retour à l'écran de connexion</p></a>
+<a href="./index.php"> <p>Retour à l'écran de connexion</p></a>
 </body>
 </html>

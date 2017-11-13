@@ -34,7 +34,7 @@ if (Auth($_POST["login"],$_POST["password"])==1)
 {
 	echo "Accès autorisé";
 	$_SESSION['U']=1;
-	header('Location: https://www.isima.fr/~clbourges1/agenda.php');
+	header('Location: ./agenda.php');
   	exit();
 }
 else

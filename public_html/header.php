@@ -21,7 +21,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="https://www.isima.fr/~clbourges1/index.php"><h2 class="en_blanc">ZZAgenda</h2></a>
+      <a href="./index.php"><h2 class="en_blanc">ZZAgenda</h2></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -37,7 +37,7 @@
         </li>
     </ul>
 	<ul class="nav navbar-nav navbar-right">
-		    <a href="https://www.isima.fr/~clbourges1/deco.php"> <h3 class="en_blanc">Déconnexion</h3></a>
+		    <a href="./deco.php"> <h3 class="en_blanc">Déconnexion</h3></a>
 	</ul>
  </div>
 </nav>

@@ -34,7 +34,7 @@ if (Auth($_POST["login"],$_POST["password"])==1)
 {
 	echo "Accès autorisé";
 	$_SESSION['A']=1;
-	header('Location: https://www.isima.fr/~clbourges1/admin.php');
+	header('Location: ./admin.php');
   	exit();
 }
 else
