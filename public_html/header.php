@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	$_SESSION['ID'] = '22';
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>ZZAgenda</title>
@@ -16,19 +21,23 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand"><p class="en_blanc">ZZAgenda</p></a>
+      <a href="https://www.isima.fr/~clbourges1/index.php"><h2 class="en_blanc">ZZAgenda</h2></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                <img src="img/lang.png" width = 20 px alt="@culture" />
+                <img src="img/lang.png" width = 40 px alt="@culture" />
                 <span class="caret"></span>
             </a>
+	
             <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><a class="language" width =10 px ><img src="img/angl.png" alt="Anglais" /></a></li>
                 <li role="presentation"><a class="language" width =10 px ><img src="img/France.png" alt="Français" /></a></li>
             </ul>
         </li>
     </ul>
-  </div>
+	<ul class="nav navbar-nav navbar-right">
+		    <a href="https://www.isima.fr/~clbourges1/deco.php"> <h3 class="en_blanc">Déconnexion</h3></a>
+	</ul>
+ </div>
 </nav>

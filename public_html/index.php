@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-
 <?php
-include("header.php");
+include("./header.php");
 ?>
 
 <div class="container">
 
-      <form action="resultat.php" method="post" class="form-signin">
+      <form action="res_auth_user.php" method="post" class="form-signin">
         <h2 class="form-signin-heading">Se connecter</h2>
         <label for="inputEmail" class="sr-only">Login</label>
         <input name="login" class="form-control" placeholder="Login" required autofocus>

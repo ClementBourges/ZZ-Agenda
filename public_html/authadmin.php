@@ -1,12 +1,11 @@
-<!DOCTYPE html>
 <?php
-include("header.php");
+include("./header.php");
 ?>
 
 
 <div class="container">
 
-      <form action="resultat.php" method="post" class="form-signin">
+      <form action="res_auth_admin.php" method="post" class="form-signin">
         <h2 class="form-signin-heading">Administration</h2>
         <label for="inputEmail" class="sr-only">Login</label>
         <input name="login" class="form-control" placeholder="Login" required autofocus>
@@ -19,7 +18,7 @@ include("header.php");
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrer dans l'espace admin</button>
       </form>
-	
+</div>
 <?php
 
 
