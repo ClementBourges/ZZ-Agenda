@@ -38,8 +38,10 @@ if($_SESSION['U']==1 || $_SESSION['A']==1)
 			.container {
 			background-color: #'.$tableau[5].';
 			margin: 0px auto;
+			padding-top:24px;
 			padding-right:24px;
 			padding-left:24px;
+			padding-bottom:24px;
 			}
 			</style>
 			<div class="container" style= background-color:'.$tableau[5].';>
