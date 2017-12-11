@@ -28,12 +28,14 @@ function Ecriture($date,$heure,$titre,$lieu,$speaker,$sujet)
 		fwrite($fictemp,$ligne);
 	}
 	fclose($fictemp);
+}
 =======
+/*
 function Ecriture ($date,$heure,$titre,$lieu,$speaker,$sujet)
 {
 	$fic=fopen("./db/events.txt", "r+");
-	$temp="./db/fictemp.txt";
-	$fic2=fopen($temp,"x+");
+	$temp2="./db/fictemp.txt";
+	$fic2=fopen($temp2,"x+");
 	echo $date;
 	echo "......";
 	$temp=$date."-".$heure;
@@ -53,12 +55,11 @@ function Ecriture ($date,$heure,$titre,$lieu,$speaker,$sujet)
 		fwrite($fic2,$ligne);
 	}
 	fclose($fic2);
->>>>>>> dc0a5671bd321fc31ebfae109c4087fb732a6145
 	fclose($fic);
 	rename($temp,"events.txt");
-}
+}*/
 
-<<<<<<< HEAD
+
 function Reecriture()
 {
 	$fictemp=fopen("./db/events.txt","w+");
@@ -76,11 +77,10 @@ function Reecriture()
 <?php
 Ecriture($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet']);
 Reecriture();
-header('Location: ./agendadmin.php');
+/*header('Location: ./agendadmin.php');*/
 =======
 ?>
 <?php
 Ecriture($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet']);
 /*header('Location: ./agenda.php');*/
->>>>>>> dc0a5671bd321fc31ebfae109c4087fb732a6145
 ?>
