@@ -1,86 +1,33 @@
 <?php
 
-<<<<<<< HEAD
-function Ecriture($date,$heure,$titre,$lieu,$speaker,$sujet)
+function AjoutEvenement($date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
 {
 	$fic=fopen("./db/events.txt", "r+");
-	$fictemp=fopen("./db/temp.txt","w+");
-	$temp=$date."-".$heure;
-	$e=0;
+	$date2=explode("-",$date);
+	$key=$date2[0].$date2[1].$date2[2].$heure;
+	$evenement=$titre.";".$lieu.";".$speaker.";".$sujet.";".$couleur.";";
+	$arr=array($key => $evenement);
 	while (!feof($fic))
 	{	
 		$ligne=fgets($fic);
-		fwrite($fictemp,$ligne);
-		$tableau=explode(";",$ligne);
-		echo "tableau==";
-		echo $tableau[1];
-		echo " - ";
-		echo "temp===";
-		echo $temp;
-		echo " - ";
-		echo strcmp($tableau[1],$temp);
-		echo "--------------";
-		if (strcmp($tableau[1],$temp)>0 &&!$e)
-		{
-			fwrite($fictemp,"$titre;$temp;$lieu;$speaker;$sujet;\n");
-			$e=1;
-		}
-		fwrite($fictemp,$ligne);
+		$tableau=explode(";",$ligne); 
+		$arr[$tableau[0]]=$tableau[1].";".$tableau[2].";".$tableau[3].";".$tableau[4].";".$tableau[5].";";
 	}
-	fclose($fictemp);
-}
-=======
-/*
-function Ecriture ($date,$heure,$titre,$lieu,$speaker,$sujet)
-{
-	$fic=fopen("./db/events.txt", "r+");
-	$temp2="./db/fictemp.txt";
-	$fic2=fopen($temp2,"x+");
-	echo $date;
-	echo "......";
-	$temp=$date."-".$heure;
-	$e=0;
-	while (!feof($fic))
+	ksort($arr);
+	rewind($fic);
+	foreach($arr as $key => $element)
 	{
-		$ligne=fgets($fic);
-		$tableau=explode(";",$ligne);
-		if (strcmp($tableau[1],$temp)<0 &&!$e)
+		if ($key != "")
 		{
-			echo $temp;
-			fwrite($fic2,"$titre;$temp;$lieu;$speaker;$sujet;\n");
-			fwrite($fic2,$ligne);
-			$e=1;
-			echo "zrgojsgjjlid";
+			fwrite($fic,$key.";".$element."\n");
 		}
-		fwrite($fic2,$ligne);
 	}
-	fclose($fic2);
+	print_r($arr);
 	fclose($fic);
-	rename($temp,"events.txt");
-}*/
-
-
-function Reecriture()
-{
-	$fictemp=fopen("./db/events.txt","w+");
-	$fic=fopen("./db/temp.txt","r");
-	while (!feof($fic))
-	{
-		$ligne=fgets($fic);
-		$tableau=explode(";",$ligne);
-		fwrite($fictemp,$ligne);
-	}
-	fclose($fic);
-	fclose($fictemp);
 }
+
 ?>
 <?php
-Ecriture($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet']);
-Reecriture();
+AjoutEvenement($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet'],$_POST['Couleur']);
 /*header('Location: ./agendadmin.php');*/
-=======
-?>
-<?php
-Ecriture($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet']);
-/*header('Location: ./agenda.php');*/
 ?>
