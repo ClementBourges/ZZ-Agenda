@@ -34,7 +34,7 @@ if (Auth($_POST["login"],$_POST["password"])==1)
 {
 	echo "Accès autorisé";
 	$_SESSION['A']=1;
-	header('Location: ./admin.php');
+	header('Location: ./agendadmin.php');
   	exit();
 }
 else

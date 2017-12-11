@@ -1,0 +1,80 @@
+<?php include('./header_deco.php'); ?>
+
+	<div class="panel-group">
+	<div>
+	<form action="admin.php" method="post" class="form-signin">
+	<button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter un événement</button>
+	</form>
+	</div>
+<?php
+if($_SESSION['U']==1 || $_SESSION['A']==1)
+{
+	$fich=fopen("./db/events.txt", "r");
+	$i=0;
+	while (!feof($fich))
+		{
+		$ligne=fgets($fich);
+		if(strlen($ligne)>1)
+		{
+			$tableau=explode(";",$ligne);
+			$i=$i+1;
+			echo'
+			<div class="panel panel default">
+				<div class="panel-heading">
+					<h2><i class="fa fa-clock-o" aria-hidden="true"></i> '.$tableau[1]."  ".$tableau[0].'</h2>
+				<div class="panel-group">
+	<div>
+		<form action="supprimer.php" method="post" class="form-signin"> <input type="hidden" name="Date" value='.$tableau[1].' /> 
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Supprimer </button>
+		</form>
+	</div>
+</div>
+<div class="panel-group">
+<div>
+	<form action="modifier.php" method="post" class="form-signin">
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Modifier</button>
+	</form>
+</div>
+</div>
+				</div>
+		 		<div class="panel-body"><h4>'.$tableau[2].'</h4>
+				</div>
+				<div class="panel-footer">
+					<ul class = "list-group">
+	      					<li class = "list-group-item"> <i class="fa fa-map-marker"></i>
+						<a href="https://www.google.fr/maps/place/'.$tableau[3].'">'.$tableau[3].'</a></li>';
+					
+						if(strlen($tableau[4])>1)
+						{
+						echo'
+						<li class = "list-group-item"> <i class="fa fa-microphone" aria-hidden="true"></i>
+							<a href="https://www.google.fr/search?q='.$tableau[4].'">'.$tableau[4].'</li>
+						';
+						}
+					echo'
+					</ul>
+				</div>
+			</div>
+				';
+		}
+		}
+		fclose($fic);
+}
+else
+{
+	echo"<p>Accès refusé</p>";
+}
+?>
+
+<p>
+        ID: <?php echo $_SESSION['ID']; ?> <br />
+	A: <?php echo $_SESSION['A']; ?> <br />
+	U: <?php echo $_SESSION['U']; ?> <br />
+ </p>
+
+
+<?php
+include("footer.php");
+?>
+
+

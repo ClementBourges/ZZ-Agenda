@@ -28,11 +28,14 @@ include("footer.php");
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-
 <div class="jumbotron">
   <div class="container text-center">
     <h1>Un évènement</h1> 
       <form action="ecriture.php" method="post" class="form-signin">
+		 <label for="input" class="sr-only">Date</label>
+        <input name="Date" class="form-control" placeholder="Date" type="date" required autofocus>
+        <label for="input" class="sr-only">Heure</label>
+        <input name="Heure" class="form-control" placeholder="Heure" required autofocus>
         <label for="input" class="sr-only">Titre</label>
         <input name="Titre" class="form-control" placeholder="Titre" required autofocus>
         <label for="input" class="sr-only">Lieu</label>
@@ -48,6 +51,8 @@ include("footer.php");
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter</button>
       </form>
 <?php
+$_POST['Date'];
+$_POST['Heure'];
 $_POST['Titre'];
 $_POST['Lieu'];
 $_POST['Speaker'];
@@ -56,18 +61,8 @@ $_POST['Sujet'];
 
   </div>
 </div>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Un autre évènement</h1>      
-    <p>Description de l'évènement</p>
-  </div>
-</div>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>n-ième évènement</h1>      
-    <p>Description de l'évènement</p>
-  </div>
-</div>
+
+
 <footer class="footer">
      <div class="container">
         	<div class="text-center center-block">
