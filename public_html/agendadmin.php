@@ -1,4 +1,6 @@
-<?php include('./header_deco.php'); ?>
+<?php include('./header_deco.php'); 
+setCookie();
+?>
 
 	<div class="container">
 	<form action="admin.php" method="post" class="form-signin">
@@ -36,6 +38,14 @@ if($_SESSION['U']==1 || $_SESSION['A']==1)
 		{
 			$tableau=explode(";",$ligne);
 			$dateheure=format_date_heure($tableau[0]);
+			setCookie("date",$dateheure[0]);
+			setCookie("heure",$dateheure[1]);
+			setCookie("titre",$tableau[1]);
+			setCookie("lieu",$tableau[2]);
+			setCookie("speaker",$tableau[3]);
+			setCookie("description",$tableau[4]);
+			setCookie("couleur",$tableau[5]);
+
 			$i=$i+1;
 			echo'
 			<style>
@@ -61,8 +71,9 @@ if($_SESSION['U']==1 || $_SESSION['A']==1)
 				
 			</div>
 			</div>
-				<form action="admin.php" method="post" class="form-signin">
+				<form action="modifier.php" method="post" class="form-signin">
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Modifier cet événement</button>
+
 				</form>
 				</br>
 				<form action="supprimer.php" method="post" class="form-signin">

@@ -1,5 +1,3 @@
 199610221430;Réunion;Clermont-Ferrand;Speaker1;Description;#c0392b;
-222202222222;dfhdh;dfhdh;dfhdhf;dfhdhf#848484;
-;Description;#e74c3c;
 199610221430;Réunion;Clermont-Ferrand;Speaker1;Description;#2c3e50;
 199610221430;Réunion;Clermont-Ferrand;Speaker1;Description;#c0392b;
