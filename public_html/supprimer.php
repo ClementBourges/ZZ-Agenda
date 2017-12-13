@@ -1,39 +1,32 @@
 <?php
 function Supprimer($date)
 {
-	$fic=fopen("./db/events.txt","r");
-	$fictemp=fopen("./db/temp.txt","w+");
+	$fic=fopen("./db/events.txt", "r+");
 	while (!feof($fic))
-	{
+	{	
 		$ligne=fgets($fic);
 		$tableau=explode(";",$ligne);
-		if (strcmp($tableau[1],$date)!=0)
+		if ($tableau[0]!=$date)
 		{
-		 fwrite($fictemp,$ligne);
+			$arr[$tableau[0]]=$tableau[1].";".$tableau[2].";".$tableau[3].";".$tableau[4].";".$tableau[5].";";
+		}
+	}
+	ksort($arr);
+	fclose($fic);
+	$fic=fopen("./db/events.txt", "w+");
+	foreach($arr as $key => $element)
+	{
+		if ($key != "" && $element!="")
+		{
+			fwrite($fic,$key.";".$element."\n");
 		}
 	}
 	fclose($fic);
-	fclose($fictemp);
-}
-
-function Reecriture()
-{
-	$fictemp=fopen("./db/events.txt","w+");
-	$fic=fopen("./db/temp.txt","r");
-	while (!feof($fic))
-	{
-		$ligne=fgets($fic);
-		$tableau=explode(";",$ligne);
-		fwrite($fictemp,$ligne);
-	}
-	fclose($fic);
-	fclose($fictemp);
 }
 
 ?>
 
 <?php
 Supprimer($_POST['Date']);
-Reecriture();
 header('Location: ./agendadmin.php');
 ?>
