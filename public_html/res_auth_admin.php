@@ -8,7 +8,7 @@
 <br>
 <?php 
 
-function Auth ($log,$passhash)
+function Auth ($log,$pass)
 {
 	$bool=0;
 	$fic=fopen("./db/adminpass.txt", "r");
@@ -39,6 +39,7 @@ if (Auth($_POST["login"],$_POST["password"])==1)
 }
 else
 {
+	/*echo $passhash;*/
 	echo "Accès refusé";
 }
 

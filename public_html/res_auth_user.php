@@ -12,12 +12,13 @@ function Auth ($log,$pass)
 {
 	$bool=0;
 	$fic=fopen("./db/userpass.txt", "r");
-	$logpass=$log.";".$pass."";
-	while (!feof($fic) AND $bool==0)
+	$passhash=hash('sha256',$pass);
+	$logpass=$log.";".$passhash."";
+	while (!feof($fic) AND $bool==0) /* Look for log and pass in a text file while administrator not found */
 	{
-		$buffer=fgets($fic);
+		$buffer=fgets($fic); /* Get a line from the text file */
 		$buffer=substr($buffer,0,strlen($buffer)-1);
-		if(strcmp($logpass,$buffer)==0)
+		if(strcmp($logpass,$buffer)==0) /* Compare */
 		{
 			$bool=1;
 		
