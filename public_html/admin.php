@@ -1,31 +1,11 @@
-<?php include('./header_deco.php'); ?>
+
 
 
 <?php
-if($_SESSION['A']==1)
-{}
-else
+if($_SESSION['A']==1 OR 1)
 {
-	echo"<h1>Accès refusé</h1>";
-}
+include('./header_deco.php');
 ?>
-<?php
-include("footer.php");
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="sticky-footer.css" rel="stylesheet">
-	<link href="blog.css" rel="stylesheet">
-	<link href="navbar.css" rel="stylesheet">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
 <body>
 <div class="jumbotron">
   <div class="container text-center">
@@ -45,10 +25,27 @@ include("footer.php");
         <input name="Speaker" class="form-control" placeholder="Speaker" required autofocus>
         <label for="input" class="sr-only">Sujet</label>
         <input type="Sujet" name="Sujet" id="inputPassword" class="form-control" placeholder="Sujet" required>
+	<div class="checkbox">
+        </div>
+	<label for="input" class="sr-only">Couleur</label>
+	<input type="color" name="Couleur" id="inputPassword" class="form-control" placeholder="Couleur" required>
         <div class="checkbox">
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter</button>
       </form>
+<?php
+}
+else
+{
+	include('./header.php');
+	echo"<h1>Accès refusé</h1>";
+}
+?>
+<?php
+include("footer.php");
+?>
+
+
 <?php
 $_POST['Date'];
 $_POST['Heure'];
@@ -58,23 +55,4 @@ $_POST['Speaker'];
 $_POST['Sujet'];
 ?>
 
-  </div>
-</div>
 
-
-<footer class="footer">
-     <div class="container">
-        	<div class="text-center center-block">
-                	<a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social"></i></a>
-	            	<a href="https://maps.google.fr/"><i class="fa fa-map-marker fa-3x social"></i></a>
-	            	<a href="./login.html"><i class="fa fa-lock fa-3x social"></i></a>
-		</div>
-	</div>
- </footer>
-
-
-  </body>
-</html>
-
-</body>
-</html>

@@ -1,11 +1,12 @@
 <?php
 
-function AjoutEvenement($date,$heure,$titre,$lieu,$speaker,$sujet)
+function AjoutEvenement($date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
 {
 	$fic=fopen("./db/events.txt", "r+");
 	$date2=explode("-",$date);
-	$key=$date2[0].$date2[1].$date2[2].$heure;
-	$evenement=$titre.";".$lieu.";".$speaker.";".$sujet."#848484".";";
+	$heure2=explode(":",$heure);
+	$key=$date2[0].$date2[1].$date2[2].$heure2[0].$heure2[1];
+	$evenement=$titre.";".$lieu.";".$speaker.";".$sujet.";".$couleur.";";
 	$arr=array($key => $evenement);
 	while (!feof($fic))
 	{	
@@ -27,6 +28,6 @@ function AjoutEvenement($date,$heure,$titre,$lieu,$speaker,$sujet)
 
 ?>
 <?php
-AjoutEvenement($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet']);
+AjoutEvenement($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet'],$_POST['Couleur']);
 header('Location: ./agendadmin.php');
 ?>

@@ -27,7 +27,7 @@ function format_date_heure($aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tab
 }
 
 
-if($_SESSION['U']==1 || $_SESSION['A']==1)
+if($_SESSION['A']==1 OR 1)
 {
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;

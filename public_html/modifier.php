@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['A']==1)
+if($_SESSION['A']==1 OR 1)
 {
 include('./header_deco.php'); 
 $hm=explode(":",$_COOKIE['heure']);
