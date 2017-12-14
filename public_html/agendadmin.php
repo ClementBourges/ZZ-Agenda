@@ -77,6 +77,7 @@ if($_SESSION['A']==1 OR 1)
 				</form>
 				</br>
 				<form action="supprimer.php" method="post" class="form-signin">
+					<input type="hidden" id="Date" name="Date" value='.$tableau[0].' >
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Supprimer cet événement</button>
 				</form>
 			</div>

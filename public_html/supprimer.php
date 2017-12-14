@@ -12,6 +12,7 @@ function Supprimer($date)
 		}
 	}
 	ksort($arr);
+	print_r($arr);
 	fclose($fic);
 	$fic=fopen("./db/events.txt", "w+");
 	foreach($arr as $key => $element)

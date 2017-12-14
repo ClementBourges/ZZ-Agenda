@@ -8,11 +8,12 @@
 <br>
 <?php 
 
-function Auth ($log,$pass)
+function Auth ($log,$passhash)
 {
 	$bool=0;
 	$fic=fopen("./db/adminpass.txt", "r");
-	$logpass=$log.";".$pass."";
+	$passhash=hash('sha256',$pass);
+	$logpass=$log.";".$passhash."";
 	while (!feof($fic) AND $bool==0)
 	{
 		$buffer=fgets($fic);
@@ -27,7 +28,6 @@ function Auth ($log,$pass)
 	fclose($fic);
 	return $bool;
 }
-
 
 
 if (Auth($_POST["login"],$_POST["password"])==1)

@@ -1,7 +1,4 @@
-199210221430;Réunion;Clermont-Ferrand;Speaker1;Description;#c0392b;
 199310221430;Réunion;Clermont-Ferrand;Speaker1;Description;#c0392b;
-199410221430;Réunion;Clermont-Ferrand;Speaker1;Description;#c0392b;
 199510221430;Réunion;Clermont-Ferrand;Speaker1;Description;#c0392b;
-199610221430;Réunion;Clermont-Ferrand;Speaker1;Description;#c0392b;
+199610221430;Réunion par baudhuit;Clermont-Ferrand;Speaker1;Description;#c0392b;
 222202220909;imuimuim;uimumum;umuimum;uimumi;#c0392b;
-3333303230303;jtrjt;rjrdjr;tjrtjrtj;rtjrjtr;#dfe94e;
