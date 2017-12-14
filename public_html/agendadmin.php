@@ -71,7 +71,14 @@ if($_SESSION['A']==1 OR 1)
 				
 			</div>
 			</div>
-				<form action="modifier.php" method="post" class="form-signin">
+				<form action="admin.php" method="post" class="form-signin">
+					<input  type="hidden" id="Modification" name="date" value='.$dateheure[0].' >
+					<input  type="hidden" id="Modification" name="heure" value='.$dateheure[1].' >
+					<input  type="hidden" id="Modification" name="titre" value='.$tableau[1].'>
+					<input  type="hidden" id="Modification" name="lieu" value='.$tableau[2].' >
+					<input  type="hidden" id="Modification" name="speaker" value='.$tableau[3].' >
+					<input  type="hidden" id="Modification" name="description" value='.$tableau[4].' >
+					<input  type="hidden" id="Modification" name="couleur" value='.$tableau[5].' >
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Modifier cet événement</button>
 
 				</form>
