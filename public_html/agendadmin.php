@@ -1,9 +1,10 @@
 <?php include('./header_deco.php'); 
 include('./fonctions.php');
+extract($_GET);
 ?>
 
 	<div class="container">
-	<form action="admin.php" method="post" class="form-signin">
+	<form action="admin.php?lang=<?php echo $lang; ?>" method="post" class="form-signin">
 	<button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter un événement</button>
 	</form>
 	</br>
@@ -23,6 +24,7 @@ if($_SESSION['A']==1)
 			$tableau=explode(";",$ligne);
 			$dateheure=format_date_heure($tableau[0]);
 			$i=$i+1;
+			echo $lang;
 			echo'
 			<style>
 			.container {
@@ -47,7 +49,7 @@ if($_SESSION['A']==1)
 				
 			</div>
 			</div>
-				<form action="admin.php" method="post" class="form-signin">
+				<form action="admin.php?lang='.$lang.'" method="post" class="form-signin">
 					<input  type="hidden" id="Modification" name="date" value='.$dateheure[0].' >
 					<input  type="hidden" id="Modification" name="heure" value='.$dateheure[1].' >
 					<input  type="hidden" id="Modification" name="titre" value='.$tableau[1].'>
@@ -59,7 +61,7 @@ if($_SESSION['A']==1)
 
 				</form>
 				</br>
-				<form action="supprimer.php" method="post" class="form-signin">
+				<form action="supprimer.php?lang='.$lang.'" method="post" class="form-signin">
 					<input type="hidden" id="Date" name="Date" value='.$tableau[0].' >
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Supprimer cet événement</button>
 				</form>

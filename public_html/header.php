@@ -1,9 +1,22 @@
 <?php 
-	session_start();
-	$_SESSION['ID'] = '22';
+session_start();
+$_SESSION['ID'] = '22';
+define('__ROOT__', dirname(__FILE__));
+$lang="fr";
+extract($_GET);
+if(isset($lang))
+{
+	if ($lang=='fr')
+	{
+		require_once(__ROOT__.'/fr.php');
+	}
+	else
+	{
+		require_once(__ROOT__.'/eng.php');
+	}
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
 <head>
   <title>ZZAgenda</title>
   <meta charset="utf-8">
@@ -21,7 +34,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="./index.php"><h2 class="en_blanc">ZZAgenda</h2></a>
+      <a href="./index.php?lang=<?php echo $lang; ?>"><h2 class="en_blanc">ZZAgenda</h2></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -31,8 +44,8 @@
             </a>
 	
             <ul class="dropdown-menu" role="menu">
-                <li role="presentation"><a class="language" width =10 px ><img src="img/angl.png" alt="Anglais" /></a></li>
-                <li role="presentation"><a class="language" width =10 px ><img src="img/France.png" alt="Français" /></a></li>
+		<a href="?lang=en"><img src="img/angl.png" alt="Anglais" /></a>
+		<a href="?lang=fr"><img src="img/France.png" alt="Français" /></a>
             </ul>
         </li>
     </ul>

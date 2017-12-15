@@ -4,6 +4,7 @@ include('./fonctions.php');
 
 <?php
 session_start();
+extract($_GET);
 if($_SESSION['A']==1)
 {
 include('./header_deco.php');
@@ -25,7 +26,7 @@ echo "<h1>Modification d'un évènement</h1> ";
 else {
 	echo "<h1>Ajout d'un évènement</h1> ";
 } ?>
-      <form action="ecriture.php" method="post" class="form-signin">
+      <form action="ecriture.php?lang=<?php echo $lang; ?>" method="post" class="form-signin">
 	<label for="input" class="sr-only">Date</label>
         <input name="Date" class="form-control" placeholder="Date" type="date" value= "<?php echo $dateformatee ?>" required autofocus>
 																	
