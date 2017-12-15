@@ -1,27 +1,11 @@
-<?php include('./header_deco.php'); ?>
+<?php 
+include('./header_deco.php'); 
+include('./fonctions.php');
+?>
 
 <div class="panel-group">
 <?php
-
-function format_date_heure($aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tableau -> 1er élém: AAAA/MM/DD  2ème élém:  HH:MM 
-{
-	
-	$aaaammddhhhh=strval($aaaammddhhhh);
-	$annee=substr($aaaammddhhhh,0,4);
-	$mois=substr($aaaammddhhhh,4,2);
-	$jour=substr($aaaammddhhhh,6,2);
-	$heure=substr($aaaammddhhhh,8,2);
-	$minute=substr($aaaammddhhhh,10,2);
-
-	$retour=array($jour."/".$mois."/".$annee , $heure.":".$minute);
-
-	return $retour;
-	
-}
-
-
-
-if($_SESSION['U']==1 || $_SESSION['A']==1)
+if($_SESSION['U']==1)
 {
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;

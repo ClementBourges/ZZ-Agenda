@@ -7,30 +7,9 @@
 
 <br>
 <?php 
+include('./fonctions.php');
 
-function Auth ($log,$pass)
-{
-	$bool=0;
-	$fic=fopen("./db/adminpass.txt", "r");
-	$passhash=hash('sha256',$pass);
-	$logpass=$log.";".$passhash."";
-	while (!feof($fic) AND $bool==0)
-	{
-		$buffer=fgets($fic);
-		$buffer=substr($buffer,0,strlen($buffer)-1);
-		if(strcmp($logpass,$buffer)==0)
-		{
-			$bool=1;
-		
-		}
-		$i=$i+1;
-	}
-	fclose($fic);
-	return $bool;
-}
-
-
-if (Auth($_POST["login"],$_POST["password"])==1)
+if (Auth($_POST["login"],$_POST["password"],"./db/adminpass.txt")==1)
 {
 	echo "Accès autorisé";
 	$_SESSION['A']=1;

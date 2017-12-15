@@ -1,5 +1,5 @@
 <?php include('./header_deco.php'); 
-setCookie();
+include('./fonctions.php');
 ?>
 
 	<div class="container">
@@ -10,24 +10,8 @@ setCookie();
 	</div>
 <?php
 
-function format_date_heure($aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tableau -> 1er élém: AAAA/MM/DD  2ème élém:  HH:MM 
-{
-	
-	$aaaammddhhhh=strval($aaaammddhhhh);
-	$annee=substr($aaaammddhhhh,0,4);
-	$mois=substr($aaaammddhhhh,4,2);
-	$jour=substr($aaaammddhhhh,6,2);
-	$heure=substr($aaaammddhhhh,8,2);
-	$minute=substr($aaaammddhhhh,10,2);
 
-	$retour=array($jour."/".$mois."/".$annee , $heure.":".$minute);
-
-	return $retour;
-	
-}
-
-
-if($_SESSION['A']==1 OR 1)
+if($_SESSION['A']==1)
 {
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;
@@ -38,14 +22,6 @@ if($_SESSION['A']==1 OR 1)
 		{
 			$tableau=explode(";",$ligne);
 			$dateheure=format_date_heure($tableau[0]);
-			setCookie("date",$dateheure[0]);
-			setCookie("heure",$dateheure[1]);
-			setCookie("titre",$tableau[1]);
-			setCookie("lieu",$tableau[2]);
-			setCookie("speaker",$tableau[3]);
-			setCookie("description",$tableau[4]);
-			setCookie("couleur",$tableau[5]);
-
 			$i=$i+1;
 			echo'
 			<style>

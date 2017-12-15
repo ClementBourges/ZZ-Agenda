@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['A']==1 OR 1)
+if($_SESSION['A']==1)
 {
 setcookie();
 include('./header_deco.php'); 

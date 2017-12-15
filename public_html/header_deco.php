@@ -1,6 +1,5 @@
 <?php 
 	session_start();
-	$_SESSION['ID'] = '22';
 ?>
 <!DOCTYPE html>
 <html lang="en">
