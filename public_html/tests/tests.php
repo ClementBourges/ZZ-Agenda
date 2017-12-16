@@ -26,26 +26,46 @@ class Authentification extends TestCase
 	{
 		$a="admin";
 		$b="admin";
-		$this->assertTrue(Auth($a,$b,"../db/adminpass.txt")==1);
+		$this->assertEquals(Auth($a,$b,"../db/adminpass.txt")==1);
 	}
 	public function test_False_Auth_Admin()
 	{
 		$c="pirate";
 		$d="faux";
-		$this->assertTrue(Auth($c,$d,"../db/adminpass.txt")==0);
+		$this->assertEquals(Auth($c,$d,"../db/adminpass.txt")==0);
 	}
 	public function testFormatDate()
 	{
 		$a="199610221450";
 		$b=format_date_heure($a);
-		$this->assertTrue($b[0]=="22/10/1996" && $b[1]=="14:50");
+		$this->assertEquals($b[0],"22/10/1996")
+		$this->assertEquals($b[1],"14:50");
 		
 	}
 	public function fin()
         {
-		echo "Fin du test \n";
+		echo "Fin des tests d'authentification \n";
         }
 
 }
 
+
+class Events extends TestCase
+{
+	public function test_new_event()
+	{
+		$fic=fopen("./db/events.txt", "w+");
+		fclose($fic);
+		AjoutEvenement("1996-22-10","14:50","Conférence","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
+		$fic=fopen("./db/events.txt", "r");
+		$ligne=fgets($fic);		
+		$this->assertEquals($ligne,"19962210;1450;Conférence;Clermont-Ferrand;Speaker;Sujet;#a82a2a");
+		fclose($fic);
+	}
+	public function test_delete_event()
+	{
+		echo "Coucou";
+	}
+}	
+	
 ?>
