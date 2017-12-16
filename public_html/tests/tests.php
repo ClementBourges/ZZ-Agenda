@@ -20,7 +20,7 @@ class Authentification extends TestCase
 	{
 		$c="pirate";
 		$d="faux";
-		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==0);
+		$this->assertTrue(Auth($c,$d,"../db/userpass.txt")==0);
 	}
 	public function test_True_Auth_Admin()
 	{
@@ -32,7 +32,7 @@ class Authentification extends TestCase
 	{
 		$c="pirate";
 		$d="faux";
-		$this->assertTrue(Auth($a,$b,"../db/adminpass.txt")==0);
+		$this->assertTrue(Auth($c,$d,"../db/adminpass.txt")==0);
 	}
 	public function testFormatDate()
 	{
