@@ -26,7 +26,7 @@ class identification_user extends TestCase
 	{
 		$a="199610221450";
 		$b=format_date_heure($a);
-		$this->assertTrue($b[0]=="22/10/1996" && $b[0]=="14:50");
+		$this->assertTrue($b[0]=="22/10/1996" && $b[1]=="14:50");
 		
 	}
 	public function fin()
