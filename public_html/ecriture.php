@@ -1,6 +1,6 @@
 <?php
 extract($_GET);
 include('./fonctions.php');
-AjoutEvenement($_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet'],$_POST['Couleur']);
+AjoutEvenement("./db/events.txt",$_POST['Date'],$_POST['Heure'],$_POST['Titre'],$_POST['Lieu'],$_POST['Speaker'],$_POST['Sujet'],$_POST['Couleur']);
 header('Location: ./agendadmin.php?lang='.$lang);
 ?>

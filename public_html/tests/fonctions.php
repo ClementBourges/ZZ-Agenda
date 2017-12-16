@@ -66,16 +66,10 @@ $aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tableau -> 1er élém: AAAA/MM
 	
 }
 
-function AjoutEvenement($date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
+function AjoutEvenement($fichier,$date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
 {
-	if (file_exists("./db/events.txt"))
-	{
-		$fic=fopen("./db/events.txt", "r+");
-	}
-	else 
-	{
-		$fic=fopen("../tests/events.txt", "w+");		//fichier event pour les tests
-	}
+
+	$fic=fopen($fichier, "r+");
 	$date2=explode("-",$date);
 	$heure2=explode(":",$heure);
 	$key=$date2[0].$date2[1].$date2[2].$heure2[0].$heure2[1];

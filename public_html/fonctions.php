@@ -65,9 +65,9 @@ function format_date_heure($aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tab
 	
 }
 
-function AjoutEvenement($date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
+function AjoutEvenement($fichier,$date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
 {
-	$fic=fopen("./db/events.txt", "r+");
+	$fic=fopen($fichier, "r+");
 	$date2=explode("-",$date);
 	$heure2=explode(":",$heure);
 	$key=$date2[0].$date2[1].$date2[2].$heure2[0].$heure2[1];

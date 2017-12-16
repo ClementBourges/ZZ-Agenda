@@ -44,7 +44,7 @@ class Tests extends TestCase
 	}
 	public function fin()
         {
-		print "Fin des tests d'authentification \n";
+		echo "Fin des tests d'authentification \n";
         }
 	
 	public function test_new_event()
