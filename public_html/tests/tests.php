@@ -8,7 +8,7 @@ class Tests extends TestCase
 {
 	public function debut()
 	{
-		echo "Début des tests d'authentification \n";
+		print "Début des tests d'authentification \n";
 	}
 	public function test_True_Auth_User()
 	{
@@ -44,7 +44,7 @@ class Tests extends TestCase
 	}
 	public function fin()
         {
-		echo "Fin des tests d'authentification \n";
+		print "Fin des tests d'authentification \n";
         }
 	
 	public function test_new_event()
