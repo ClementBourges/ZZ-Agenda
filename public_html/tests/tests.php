@@ -51,10 +51,10 @@ class Tests extends TestCase
 	{
 		$fic=fopen("./events.txt", "w+");
 		fclose($fic);
-		AjoutEvenement("./events.txt","1996-22-10","14:50","Conférence","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
+		AjoutEvenement("./events.txt","1996-10-22","14:50","Conférence","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
 		$fic=fopen("./events.txt", "r");
 		$ligne=fgets($fic);		
-		$this->assertEquals($ligne,"199622101450;Conférence;Clermont-Ferrand;Speaker;Sujet;#a82a2a;");
+		$this->assertEquals($ligne,"199610221450;Conférence;Clermont-Ferrand;Speaker;Sujet;#a82a2a;");
 		fclose($fic);
 	}
 	public function test_delete_event()
