@@ -68,7 +68,7 @@ $aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tableau -> 1er élém: AAAA/MM
 
 function AjoutEvenement($date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
 {
-	if (file_exists("./db/events.txt")
+	if (file_exists("./db/events.txt"))
 	{
 		$fic=fopen("./db/events.txt", "r+");
 	}
