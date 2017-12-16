@@ -4,29 +4,35 @@ require_once("./fonctions.php");
 
 use PHPUnit\Framework\TestCase;
 
-class identification_user extends TestCase
+class Authentification extends TestCase
 {
 	public function debut()
 	{
-		echo "Début du test \n";
+		echo "Début des tests d'authentification \n";
 	}
-	public function testAuth_User()
+	public function test_True_Auth_User()
 	{
 		$a="machin";
 		$b="bidule";
+		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==1);
+	}
+	public function test_False_Auth_User()
+	{
 		$c="pirate";
 		$d="faux";
-		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==1);
 		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==0);
 	}
-	public function testAuth_admin()
+	public function test_True_Auth_Admin()
 	{
 		$a="admin";
 		$b="admin";
+		$this->assertTrue(Auth($a,$b,"../db/adminpass.txt")==1);
+	}
+	public function test_False_Auth_Admin()
+	{
 		$c="pirate";
 		$d="faux";
-		$this->assertTrue(Auth($a,$b,"../db/adminpass.txt")==1);
-		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==0);
+		$this->assertTrue(Auth($a,$b,"../db/adminpass.txt")==0);
 	}
 	public function testFormatDate()
 	{
