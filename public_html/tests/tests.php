@@ -50,15 +50,15 @@ class Tests extends TestCase
 	public function test_new_event_fichier_vide()
 	{
 		AjoutEvenement("./db_test/events_vide.txt","1996-10-22","14:50","Conference","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
-		$fic=fopen("./events.txt", "r");
+		$fic=fopen("./db_test/events_vide.txt", "r");
 		$ligne=fgets($fic);		
 		$this->assertEquals($ligne,"199610221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
 		fclose($fic);
 	}	
 	public function test_new_event_event_seul()
 	{
-		AjoutEvenement("./db_test/event_seul.txt","1996-10-22","14:50","Conference","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
-		$fic=fopen("./db_test/event_seul.txt", "r");
+		AjoutEvenement("./db_test/event seul.txt","1996-10-22","14:50","Conference","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
+		$fic=fopen("./db_test/event seul.txt", "r");
 		$ligne=fgets($fic);		
 		$this->assertEquals($ligne,"199610221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
 		$ligne=fgets($fic);		
