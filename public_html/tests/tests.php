@@ -14,13 +14,13 @@ class Authentification extends TestCase
 	{
 		$a="machin";
 		$b="bidule";
-		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==1);
+		$this->assertEquals(Auth($a,$b,"../db/userpass.txt"),1);
 	}
 	public function test_False_Auth_User()
 	{
 		$c="pirate";
 		$d="faux";
-		$this->assertTrue(Auth($c,$d,"../db/userpass.txt")==0);
+		$this->assertEquals(Auth($c,$d,"../db/userpass.txt"),0);
 	}
 	public function test_True_Auth_Admin()
 	{
