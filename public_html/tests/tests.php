@@ -26,13 +26,13 @@ class Authentification extends TestCase
 	{
 		$a="admin";
 		$b="admin";
-		$this->assertEquals(Auth($a,$b,"../db/adminpass.txt")==1);
+		$this->assertEquals(Auth($a,$b,"../db/adminpass.txt"),1);
 	}
 	public function test_False_Auth_Admin()
 	{
 		$c="pirate";
 		$d="faux";
-		$this->assertEquals(Auth($c,$d,"../db/adminpass.txt")==0);
+		$this->assertEquals(Auth($c,$d,"../db/adminpass.txt"),0);
 	}
 	public function testFormatDate()
 	{
