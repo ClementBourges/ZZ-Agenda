@@ -38,7 +38,7 @@ class Authentification extends TestCase
 	{
 		$a="199610221450";
 		$b=format_date_heure($a);
-		$this->assertEquals($b[0],"22/10/1996")
+		$this->assertEquals($b[0],"22/10/1996");
 		$this->assertEquals($b[1],"14:50");
 		
 	}
