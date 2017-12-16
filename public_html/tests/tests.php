@@ -1,6 +1,6 @@
 <?php
 
-require_once("./fonction.php");
+require_once("./fonctions.php");
 
 use PHPUnit\Framework\TestCase;
 
