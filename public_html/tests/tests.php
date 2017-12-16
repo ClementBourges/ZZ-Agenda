@@ -4,7 +4,7 @@ require_once("./fonctions.php");
 
 use PHPUnit\Framework\TestCase;
 
-class Authentification extends TestCase
+class Tests extends TestCase
 {
 	public function debut()
 	{
@@ -46,12 +46,7 @@ class Authentification extends TestCase
         {
 		echo "Fin des tests d'authentification \n";
         }
-
-}
-
-
-class Events extends TestCase
-{
+	
 	public function test_new_event()
 	{
 		$fic=fopen("./db/events.txt", "w+");
@@ -66,6 +61,9 @@ class Events extends TestCase
 	{
 		echo "Coucou";
 	}
-}	
+
+}
+
+	
 	
 ?>
