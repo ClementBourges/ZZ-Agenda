@@ -14,13 +14,13 @@ class identification_user extends TestCase
 	{
 		$a="machin";
 		$b="bidule";
-		$this->assertTrue(Auth_user($a,$b,"../db/userpass.txt")==1);
+		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==1);
 	}
 	public function testAuth2()
 	{
 		$a="admin";
 		$b="admin";
-		$this->assertTrue(Auth_user($a,$b,"../db/adminpass.txt")==1);
+		$this->assertTrue(Auth($a,$b,"../db/adminpass.txt")==1);
 	}
 	public function fin()
         {
