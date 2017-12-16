@@ -49,9 +49,7 @@ class Tests extends TestCase
 	
 	public function test_new_event()
 	{
-		$fic=fopen("./events.txt", "w+");
-		fclose($fic);
-		AjoutEvenement("./events.txt","1996-10-22","14:50","Conférence","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
+		//AjoutEvenement("./events.txt","1996-10-22","14:50","Conférence","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
 		$fic=fopen("./events.txt", "r");
 		$ligne=fgets($fic);		
 		$this->assertEquals($ligne,"199610221450;Conférence;Clermont-Ferrand;Speaker;Sujet;#a82a2a;");
