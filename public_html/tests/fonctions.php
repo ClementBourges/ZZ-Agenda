@@ -49,7 +49,8 @@ function Supprimer($date)
 	fclose($fic);
 }
 
-function format_date_heure($aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tableau -> 1er élém: AAAA/MM/DD  2ème élém:  HH:MM 
+function format_date_heure(
+$aaaammddhhhh)   // Transforme AAAAMMDDHHHH en un tableau -> 1er élém: AAAA/MM/DD  2ème élém:  HH:MM 
 {
 	
 	$aaaammddhhhh=strval($aaaammddhhhh);

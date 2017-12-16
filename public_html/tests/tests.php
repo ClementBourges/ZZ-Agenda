@@ -10,17 +10,24 @@ class identification_user extends TestCase
 	{
 		echo "Début du test \n";
 	}
-	public function testAuth()
+	public function testAuth_User()
 	{
 		$a="machin";
 		$b="bidule";
 		$this->assertTrue(Auth($a,$b,"../db/userpass.txt")==1);
 	}
-	public function testAuth2()
+	public function testAuth_admin()
 	{
 		$a="admin";
 		$b="admin";
 		$this->assertTrue(Auth($a,$b,"../db/adminpass.txt")==1);
+	}
+	public function testFormatDate()
+	{
+		$a="199610221450";
+		$b=format_date_heure($a);
+		$this->assertTrue($b[0]=="22/10/1996" && $b[0]=="14:50");
+		
 	}
 	public function fin()
         {
