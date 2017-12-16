@@ -48,7 +48,7 @@ if(isset($lang))
         </li>
     </ul>
 	<ul class="nav navbar-nav navbar-right">
-		    <a href="./deco.php?lang=<?php echo $lang;?>"> <h3 class="en_blanc">Déconnexion</h3></a>
+		    <a href="./deco.php?lang=<?php echo $lang;?>"> <h3 class="en_blanc"><?php echo $deconnexion; ?></h3></a>
 	</ul>
  </div>
 </nav>

@@ -20,32 +20,32 @@ $dateformatee=$datetab[2]."-".$datetab[1]."-".$datetab[0];
 
 <?php if ($_POST['date']!="")
 {
-echo "<h1>Modification d'un évènement</h1> ";
+echo "<h1>$modif</h1> ";
 
 }
 else {
-	echo "<h1>Ajout d'un évènement</h1> ";
+	echo "<h1>$AjoutEve</h1>";
 } ?>
       <form action="ecriture.php?lang=<?php echo $lang; ?>" method="post" class="form-signin">
-	<label for="input" class="sr-only">Date</label>
-        <input name="Date" class="form-control" placeholder="Date" type="date" value= "<?php echo $dateformatee ?>" required autofocus>
+	<label for="input" class="sr-only"></label>
+        <input name="Date" class="form-control" placeholder="Date" type="date" value= '<?php echo $dateformatee; ?>' required autofocus>
 																	
-        <label for="input" class="sr-only">Heure</label>
-        <input name="Heure" class="form-control" placeholder="Heure" type="time" value= "<?php echo $heurmin ?>" required autofocus>
-        <label for="input" class="sr-only">Titre</label>
-        <input name="Titre" class="form-control" value= "<?php echo $_POST['titre'] ?>"  placeholder="Titre" required autofocus>
-        <label for="input" class="sr-only">Lieu</label>
-        <input type="Lieu" name="Lieu" id="inputPassword" class="form-control" value= "<?php echo $_POST['lieu'] ?>" placeholder="Lieu" required>
+        <label for="input" class="sr-only"></label>
+        <input name="Heure" class="form-control" placeholder="Heure" type="time" value= '<?php echo $heurmin; ?>' required autofocus>
+        <label for="input" class="sr-only"></label>
+        <input name="Titre" class="form-control" value= '<?php echo $_POST['titre']; ?>'  placeholder='<?php echo $Titre; ?>' required autofocus>
+        <label for="input" class="sr-only"><?php echo $Lieu; ?></label>
+        <input type="Lieu" name="Lieu" id="inputPassword" class="form-control" value= '<?php echo $_POST['lieu']; ?>' placeholder='<?php echo $Lieu; ?>' required>
         <div class="checkbox">
         </div>
-        <label for="input" class="sr-only">Speaker</label>
-        <input name="Speaker" class="form-control" placeholder="Speaker" value= "<?php echo $_POST['speaker'] ?>"required autofocus>
-        <label for="input" class="sr-only">Sujet</label>
-        <input type="Sujet" name="Sujet" id="inputPassword" class="form-control" value= "<?php echo $_POST['description'] ?>" placeholder="Sujet" required>
+        <label for="input" class="sr-only"></label>
+        <input name="Speaker" class="form-control" placeholder='<?php echo $Speaker; ?>' value= '<?php echo $_POST['speaker']; ?>'required autofocus>
+        <label for="input" class="sr-only"></label>
+        <input type="Sujet" name="Sujet" id="inputPassword" class="form-control" value= '<?php echo $_POST['description']; ?>' placeholder="<?php echo $Sujet; ?>" required>
 	<div class="checkbox">
         </div>
-	<label for="input" class="sr-only">Couleur</label>
-	<input type="color" name="Couleur" id="inputPassword" class="form-control" value= "<?php echo $_POST['couleur'] ?>"placeholder="Couleur" required>
+	<label for="input" class="sr-only"></label>
+	<input type="color" name="Couleur" id="inputPassword" class="form-control" value= '<?php echo $_POST['couleur']; ?>' placeholder="Couleur" required>
         <div class="checkbox">
 
 <?php 
@@ -55,13 +55,13 @@ if ($_POST['date']!="")
 	Supprimer($datetab[2].$datetab[1].$datetab[0].$hm[0].$hm[1]);
 	echo '
 		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Modifier</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">'.$modifier.'</button>
 	      </form>' ;
 }
 else 
 {
 		echo '</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">'.$Ajouter.'</button>
 	      	</form>';
 	} 
 
@@ -72,7 +72,7 @@ else
 else
 {
 	include('./header.php');
-	echo"<h1>Accès refusé</h1>";
+	echo"<h1>$refus</h1>";
 }
 ?>
 <?php

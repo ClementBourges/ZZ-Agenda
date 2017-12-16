@@ -1,5 +1,5 @@
 <?php 
-$Seconnecter="Log in"; 
+$Seconnecter="Sign in"; 
 $login="Login";
 $Motdepasse="Password";
 $Sesouvenirdemoi="Remember me";
@@ -9,11 +9,15 @@ $deco="Deconnexion";
 $Modifiereve="Edit an event";
 $Suppr="Delete an event";
 $Titre="Tittle";
-$LIeu="Place";
+$Lieu="Place";
 $Speaker="Speaker";
 $Sujet="Topic";
 $Ajouter="Add";
 $Administration="Administration";
 $entreradm="Enter in administrator space";
 $deconnexion="Log out";
+$refus="Acess denied";
+$modif="Editing an event";
+$modifier="Edit";
+$retour="Back to the sign in screen";
 ?>

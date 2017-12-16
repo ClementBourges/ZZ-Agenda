@@ -6,7 +6,7 @@ extract($_GET);
 <div class="container">
       <form action="res_auth_user.php?lang=<?php if ($lang!=""){echo $lang;}else{echo "fr";}?>" method="post" class="form-signin">
         <h2 class="form-signin-heading"> <?php echo $Seconnecter ?> </h2>
-        <input name="login" class="form-control" placeholder='<?php echo $Seconnecter ?>' required autofocus>
+        <input name="login" class="form-control" placeholder='<?php echo $login ?>' required autofocus>
         <label for="inputPassword" class="sr-only"><?php echo $Motdepasse ?> </label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder='<?php echo $Motdepasse ?>' required>
         <div class="checkbox">

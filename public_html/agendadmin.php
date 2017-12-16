@@ -5,7 +5,7 @@ extract($_GET);
 
 	<div class="container">
 	<form action="admin.php?lang=<?php echo $lang; ?>" method="post" class="form-signin">
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter un événement</button>
+	<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $AjoutEve; ?></button>
 	</form>
 	</br>
 	</div>
@@ -14,6 +14,8 @@ extract($_GET);
 
 if($_SESSION['A']==1)
 {
+extract($_GET);
+if ($lang=""){echo $lang;}
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;
 	while (!feof($fich))
@@ -24,7 +26,6 @@ if($_SESSION['A']==1)
 			$tableau=explode(";",$ligne);
 			$dateheure=format_date_heure($tableau[0]);
 			$i=$i+1;
-			echo $lang;
 			echo'
 			<style>
 			.container {
@@ -50,20 +51,20 @@ if($_SESSION['A']==1)
 			</div>
 			</div>
 				<form action="admin.php?lang='.$lang.'" method="post" class="form-signin">
-					<input  type="hidden" id="Modification" name="date" value='.$dateheure[0].' >
-					<input  type="hidden" id="Modification" name="heure" value='.$dateheure[1].' >
-					<input  type="hidden" id="Modification" name="titre" value='.$tableau[1].'>
-					<input  type="hidden" id="Modification" name="lieu" value='.$tableau[2].' >
-					<input  type="hidden" id="Modification" name="speaker" value='.$tableau[3].' >
-					<input  type="hidden" id="Modification" name="description" value='.$tableau[4].' >
-					<input  type="hidden" id="Modification" name="couleur" value='.$tableau[5].' >
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Modifier cet événement</button>
+					<input  type="hidden" id="Modification" name="date" value="'.$dateheure[0].'" >
+					<input  type="hidden" id="Modification" name="heure" value="'.$dateheure[1].'" >
+					<input  type="hidden" id="Modification" name="titre" value="'.$tableau[1].'">
+					<input  type="hidden" id="Modification" name="lieu" value="'.$tableau[2].'" >
+					<input  type="hidden" id="Modification" name="speaker" value="'.$tableau[3].'" >
+					<input  type="hidden" id="Modification" name="description" value="'.$tableau[4].'" >
+					<input  type="hidden" id="Modification" name="couleur" value="'.$tableau[5].'" >
+					<button class="btn btn-lg btn-primary btn-block" type="submit"> '.$Modifiereve.'</button>
 
 				</form>
 				</br>
 				<form action="supprimer.php?lang='.$lang.'" method="post" class="form-signin">
 					<input type="hidden" id="Date" name="Date" value='.$tableau[0].' >
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Supprimer cet événement</button>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">'. $Suppr .'</button>
 				</form>
 			</div>
 			</div></br>
@@ -74,7 +75,7 @@ if($_SESSION['A']==1)
 }
 else
 {
-	echo"<p>Accès refusé</p>";
+	echo $refus;
 }
 ?>
 
