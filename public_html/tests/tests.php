@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class Tests extends TestCase
 {
 	
-	public function debut()
+	public function test_debut()
 	{
 		$a="machin";
 		$b="bidule";
