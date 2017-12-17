@@ -6,10 +6,10 @@ use PHPUnit\Framework\TestCase;
 
 class Tests extends TestCase
 {
-
+	
+	fwrite(STDERR, print_r("\n\n\n Tests d'authentification:\n\n", TRUE));
 	public function test_True_Auth_User() /* Auth() return 1 for a right login/pass combination using userpass.txt database */
 	{
-		fwrite(STDERR, print_r("\n\n\n Tests d'authentification:\n\n", TRUE));
 		$a="machin";
 		$b="bidule";
 		$this->assertEquals(Auth($a,$b,"../db/userpass.txt"),1);
@@ -31,21 +31,21 @@ class Tests extends TestCase
 		$c="pirate";
 		$d="faux";
 		$this->assertEquals(Auth($c,$d,"../db/adminpass.txt"),0);
+		fwrite(STDERR, print_r("\n\n\nTest du formatage de la date et de l'heure:\n\n", TRUE)); 
 	}
 	public function testFormatDate() /* format_date_heure() turn "AAAAMMDDHHHH" into an array: 1st item: "AAAA/MM/DD"  2nd item:  "HH:MM"  */
 	{
-		fwrite(STDERR, print_r("\n\n\nTest du formatage de la date et de l'heure:\n\n", TRUE)); 
 		$a="199610221450";
 		$b=format_date_heure($a);
 		$this->assertEquals($b[0],"22/10/1996");
 		$this->assertEquals($b[1],"14:50");
+		fwrite(STDERR, print_r("\n\n\nTests d'ajout d'un événement:\n\n", TRUE)); 
 		
 	}
 
 	
 	public function test_new_event_fichier_vide() /* Add an event in an empty file */
 	{
-		fwrite(STDERR, print_r("\n\n\nTests d'ajout d'un événement:\n\n", TRUE)); 
 		AjoutEvenement("./db_test/events_vide.txt","1996-10-22","14:50","Conference","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
 		$fic=fopen("./db_test/events_vide.txt", "r");
 		$ligne=fgets($fic);		
@@ -77,10 +77,10 @@ class Tests extends TestCase
 		$ligne=fgets($fic);		
 		$this->assertEquals($ligne,"199810221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
 		fclose($fic);
+		fwrite(STDERR, print_r("\n\n\nTests de suppression d'un événement:\n\n", TRUE)); 
 	}
 	public function test_delete_event() /* Delete an event of a file in which there are 2 events */
 	{
-		fwrite(STDERR, print_r("\n\n\nTests de suppression d'un événement:\n\n", TRUE)); 
 		Supprimer("./db_test/event seul.txt",199610221450);
 		$fic=fopen("./db_test/event seul.txt", "r");
 		$ligne=fgets($fic);				
