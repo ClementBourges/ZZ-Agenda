@@ -1,4 +1,2 @@
-000405060504;543;54aaakka ;iho h  8+875 ;5454;#1c55e0;
-043405040534;5453;4534;534;5453;#d60e0e;
-045405060559;jighi;khkjh;jkhjkh;jkhlj;#000000;
-054104050406;ugyjh;yfguhjk;dtfyhgvjbkn;dtfygujhbkn;#000000;
+201712161200;Rendez -vous;Issoire;Speaker;Sujet;#804040;
+201712181530;Conférence ;Clermont-Ferrand;Speaker;Sujet;#ffff00;

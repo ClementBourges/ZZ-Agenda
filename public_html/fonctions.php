@@ -1,17 +1,22 @@
 <?php
-/* Auth: Check if the login and password are in a file text*/
-function Auth($log,$pass,$fichier)
+
+function Test($a)
+{
+	return a;
+}
+
+function Auth($log,$pass,$fichier) /* Auth() function return 1 if the combination login/hash(pass) is found in the file text specified ine the last parameter, 0 else */
 {
 	$boole=0;
 	$i=0;
 	$fic=fopen($fichier, "r");
-	$passhash=hash('sha256',$pass); /* hash the password */
-	$logpass=$log.";".$passhash."";
-	while (!feof($fic) AND $boole==0) /* Search user in the file text */
+	$passhash=hash('sha256',$pass); /* We use sha256 encryption */
+	$logpass=$log.";".$passhash."";	
+	while (!feof($fic) AND $boole==0) /* Browse the file text */
 	{
-		$buffer=fgets($fic); /* Get a line in the file text */
+		$buffer=fgets($fic);
 		$buffer=substr($buffer,0,strlen($buffer)-1);
-		if(strcmp($logpass,$buffer)==0) /* Compare the ligne and login/password */
+		if(strcmp($logpass,$buffer)==0) /* Compare var and line of the file text */
 		{
 			$boole=1;
 		
@@ -19,44 +24,42 @@ function Auth($log,$pass,$fichier)
 		$i=$i+1;
 	}
 	fclose($fic);
-	return $boole; /* bool=1 if the user exists, 0 if he doesn't */
+	return $boole;
 }
 
 
-/* Supprimer: Delete an event of the text file */
-function Supprimer($date)
+
+function Supprimer($fichier,$date) /* Delete an event in the file text whose path is specified in the first parameter, we only need its date which stand for a key*/
 {
-	$fic=fopen("./db/events.txt", "r+");
-	while (!feof($fic)) /* Build an array of all the event */
+	$fic=fopen($fichier, "r+");
+	while (($ligne = fgets($fic)) !== false)
 	{	
-		$ligne=fgets($fic); /* Get the line in the file text */
 		$tableau=explode(";",$ligne);
-		if ($tableau[0]!=$date) /* Don't add the event in the array if it is the event we want to delete */
+		if ($tableau[0]!=$date)
 		{
-			/* Add the line in the array, date is the key */
-			$arr[$tableau[0]]=$tableau[1].";".$tableau[2].";".$tableau[3].";".$tableau[4].";".$tableau[5].";";
+			$arr[$tableau[0]]=$tableau[1].";".$tableau[2].";".$tableau[3].";".$tableau[4].";".$tableau[5].";"; /* Keep only the events we dont want to delete and save them into an array */
 		}
 	}
-	ksort($arr); /* Sort the array */
-	fclose($fic);
-	/* Writing the new file text */ 
-	$fic=fopen("./db/events.txt", "w+");
-	foreach($arr as $key => $element) /* For each element of the array */
+	if(isset($arr))
 	{
-		if ($key != "" && $element!="")
+		ksort($arr);
+	}
+	fclose($fic);
+	$fic=fopen($fichier, "w+"); /* Erase the file */
+	if(isset($arr))
+	{
+		foreach($arr as $key => $element)
 		{
-			/* Write the event in the text file */
-			fwrite($fic,$key.";".$element."\n");
+			if ($key != "" && $element!="")
+			{
+				fwrite($fic,$key.";".$element."\n");  /* Re-write the events minus the one we wanted to delete */
+			}
 		}
 	}
 	fclose($fic);
 }
 
-
-/* format_date_heure: transform date YYYYMMDDHHHH in an array of 2 elements: 
-							-YYYY/MM/DD
-							-HH:MM*/
-function format_date_heure($aaaammddhhhh)
+function format_date_heure($aaaammddhhhh)   /* format_date_heure() turn "AAAAMMDDHHHH" into an array: 1st item: "AAAA/MM/DD"  2nd item:  "HH:MM"  */
 {
 	
 	$aaaammddhhhh=strval($aaaammddhhhh);
@@ -71,32 +74,28 @@ function format_date_heure($aaaammddhhhh)
 	return $retour;
 	
 }
-/* AjoutEvenement: Add an event to file text file */ 
-function AjoutEvenement($fichier,$date,$heure,$titre,$lieu,$speaker,$sujet,$couleur)
+
+function AjoutEvenement($fichier,$date,$heure,$titre,$lieu,$speaker,$sujet,$couleur) /* Add an event in the file text whose path is specified in the first parameter */
 {
+
 	$fic=fopen($fichier, "r+");
-	/* put the date in the correct format in order to use it as a key */
 	$date2=explode("-",$date);
 	$heure2=explode(":",$heure);
 	$key=$date2[0].$date2[1].$date2[2].$heure2[0].$heure2[1];
 	$evenement=$titre.";".$lieu.";".$speaker.";".$sujet.";".$couleur.";";
-	$arr=array($key => $evenement);
-	while (!feof($fic)) /* Build an array of all the event */
-	{	
-		$ligne=fgets($fic); /* Get a line in the file text */
+	$arr=array($key => $evenement);			/* Save the element we want to add in an array */
+	while (($ligne = fgets($fic)) !== false)
+	{						/* Save all the pre-existing events into this array */
 		$tableau=explode(";",$ligne); 
-		/* Add the line in the array, date is the key */
 		$arr[$tableau[0]]=$tableau[1].";".$tableau[2].";".$tableau[3].";".$tableau[4].";".$tableau[5].";";
 	}
 	ksort($arr);
-	rewind($fic);
-	/* Writing the new file text */ 
-	foreach($arr as $key => $element) /* For each element of the array */
+	rewind($fic);				/* sort this array using the key AAAAMMDDHHMM */
+	foreach($arr as $key => $element)
 	{
 		if ($key != "")
 		{
-			/* Write the event in the text file */
-			fwrite($fic,$key.";".$element."\n");
+			fwrite($fic,$key.";".$element."\n");	/* re-write the file using the sorted array */
 		}
 	}
 	fclose($fic);
