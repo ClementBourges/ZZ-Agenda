@@ -34,7 +34,7 @@ class Tests extends TestCase
 		$d="faux";
 		$this->assertEquals(Auth($c,$d,"../db/adminpass.txt"),0);
 	}
-	public function testFormatDate() /* Turn "AAAAMMDDHHHH" into an array: 1st item: "AAAA/MM/DD"  2nd item:  "HH:MM"  */
+	public function testFormatDate() /* format_date_heure() turn "AAAAMMDDHHHH" into an array: 1st item: "AAAA/MM/DD"  2nd item:  "HH:MM"  */
 	{
 		$a="199610221450";
 		$b=format_date_heure($a);
@@ -47,7 +47,7 @@ class Tests extends TestCase
 		echo "Fin des tests d'authentification \n";
         }
 	
-	public function test_new_event_fichier_vide()
+	public function test_new_event_fichier_vide() /* Add an event in an empty file */
 	{
 		AjoutEvenement("./db_test/events_vide.txt","1996-10-22","14:50","Conference","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
 		$fic=fopen("./db_test/events_vide.txt", "r");
@@ -55,7 +55,7 @@ class Tests extends TestCase
 		$this->assertEquals($ligne,"199610221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
 		fclose($fic);
 	}	
-	public function test_new_event_event_seul()
+	public function test_new_event_event_seul() /* Add an event in a file containing only an other event */
 	{
 		AjoutEvenement("./db_test/event seul.txt","1996-10-22","14:50","Conference","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
 		$fic=fopen("./db_test/event seul.txt", "r");
@@ -65,7 +65,7 @@ class Tests extends TestCase
 		$this->assertEquals($ligne,"199710221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
 		fclose($fic);
 	}
-	public function test_new_event_grande_liste()
+	public function test_new_event_grande_liste() /* Add an event in a large list of event, it allow us to verify that the sort goes well */
 	{
 		AjoutEvenement("./db_test/grande_liste_event.txt","1996-10-22","14:50","Conference","Clermont-Ferrand","Speaker","Sujet","#a82a2a");
 		$fic=fopen("./db_test/grande_liste_event.txt", "r");
@@ -81,13 +81,19 @@ class Tests extends TestCase
 		$this->assertEquals($ligne,"199810221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
 		fclose($fic);
 	}
-	public function test_delete_event()
+	public function test_delete_event() /* Delete an event of a file in which there are 2 events */
 	{
 		Supprimer("./db_test/event seul.txt",199610221450);
 		$fic=fopen("./db_test/event seul.txt", "r");
 		$ligne=fgets($fic);				
 		$this->assertEquals($ligne,"199710221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
 		fclose($fic);
+	}
+	public function test_delete_puis_fichier_vide() /* Delete one event of a file in which there is only one event */
+	{
+		Supprimer("./db_test/event seul.txt",199710221450);
+		$size=filesize("./db_test/event seul.txt");				
+		$this->assertEquals($size,0);
 	}
 
 }
