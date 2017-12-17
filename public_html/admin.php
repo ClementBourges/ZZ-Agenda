@@ -52,7 +52,7 @@ else { /* Add the event, fields are pre-filled if it is a modification */
 
 if ($_POST['date']!="") /* If it is a modification, delete the previous event and add the new */
 {
-	Supprimer($datetab[2].$datetab[1].$datetab[0].$hm[0].$hm[1]);
+	Supprimer("./db/events.txt",$datetab[2].$datetab[1].$datetab[0].$hm[0].$hm[1]);
 	echo '
 		</div>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">'.$modifier.'</button>
