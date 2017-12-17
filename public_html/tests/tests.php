@@ -44,7 +44,7 @@ class Tests extends TestCase
 	}
 	public function fin()
         {
-		echo "Fin des tests d'authentification \n";
+		fwrite(STDERR, print_r("Fin des tests d'authentification \n\n\n", TRUE)); 
         }
 	
 	public function test_new_event_fichier_vide() /* Add an event in an empty file */
