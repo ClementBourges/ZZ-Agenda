@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class Tests extends TestCase
 {
 	
-	public function test_True_Auth_User() /* Auth() return 1 for a right login/pass combination using userpass.txt database */
+	public function test_True_Auth() /* Auth() return 1 for a right login/pass combination using userpass.txt database */
 	{
 		$a="machin";
 		$b="bidule";
