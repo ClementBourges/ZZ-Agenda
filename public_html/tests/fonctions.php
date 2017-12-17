@@ -37,7 +37,7 @@ function Supprimer($fichier,$date)
 	}
 	ksort($arr);
 	fclose($fic);
-	$fic=fopen("./db/events.txt", "w+");
+	$fic=fopen($fichier, "w+");
 	foreach($arr as $key => $element)
 	{
 		if ($key != "" && $element!="")

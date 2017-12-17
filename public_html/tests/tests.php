@@ -34,7 +34,7 @@ class Tests extends TestCase
 		$d="faux";
 		$this->assertEquals(Auth($c,$d,"../db/adminpass.txt"),0);
 	}
-	public function testFormatDate()
+	public function testFormatDate() /* Turn "AAAAMMDDHHHH" into an array: 1st item: "AAAA/MM/DD"  2nd item:  "HH:MM"  */
 	{
 		$a="199610221450";
 		$b=format_date_heure($a);
