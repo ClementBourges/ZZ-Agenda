@@ -10,25 +10,25 @@ class Tests extends TestCase
 	{
 		print "Début des tests d'authentification \n";
 	}
-	public function test_True_Auth_User() /* Auth() return 1 for a good login/pass combinaison */
+	public function test_True_Auth_User() /* Auth() return 1 for a right login/pass combination using userpass.txt database */
 	{
 		$a="machin";
 		$b="bidule";
 		$this->assertEquals(Auth($a,$b,"../db/userpass.txt"),1);
 	}
-	public function test_False_Auth_User()
+	public function test_False_Auth_User() /* Auth() return 0 for a false login/pass combination using userpass.txt database */
 	{
 		$c="pirate";
 		$d="faux";
 		$this->assertEquals(Auth($c,$d,"../db/userpass.txt"),0);
 	}
-	public function test_True_Auth_Admin()
+	public function test_True_Auth_Admin() /* Auth() return 1 for a right login/pass combination using adminpass.txt database */
 	{
 		$a="admin";
 		$b="admin";
-		$this->assertEquals(Auth($a,$b,"../db/adminpass.txt"),1);
+		$this->assertEquals(Auth($a,$b,"../db/adminpass.txt"),1); 
 	}
-	public function test_False_Auth_Admin()
+	public function test_False_Auth_Admin() /* Auth() return 0 for a false login/pass combination using adminpass.txt database */
 	{
 		$c="pirate";
 		$d="faux";

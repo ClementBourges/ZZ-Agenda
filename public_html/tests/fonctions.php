@@ -27,9 +27,8 @@ function Auth($log,$pass,$fichier)
 function Supprimer($fichier,$date)
 {
 	$fic=fopen($fichier, "r+");
-	while (!feof($fic))
+	while (($ligne = fgets($fic)) !== false)
 	{	
-		$ligne=fgets($fic);
 		$tableau=explode(";",$ligne);
 		if ($tableau[0]!=$date)
 		{
