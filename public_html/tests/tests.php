@@ -7,7 +7,10 @@ use PHPUnit\Framework\TestCase;
 class Tests extends TestCase
 {
 	
-	fwrite(STDERR, print_r("\n\n\n Tests d'authentification:\n\n", TRUE));
+	public function commentaire()
+	{
+		fwrite(STDERR, print_r("\n\n\n Tests d'authentification:\n\n", TRUE));
+	}
 	public function test_True_Auth_User() /* Auth() return 1 for a right login/pass combination using userpass.txt database */
 	{
 		$a="machin";
