@@ -83,7 +83,11 @@ class Tests extends TestCase
 	}
 	public function test_delete_event()
 	{
-		echo "Coucou";
+		Supprimer("./db_test/event_seul.txt",199610221450);
+		$fic=fopen("./db_test/event seul.txt", "r");
+		$ligne=fgets($fic);				
+		$this->assertEquals($ligne,"199710221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
+		fclose($fic);
 	}
 
 }

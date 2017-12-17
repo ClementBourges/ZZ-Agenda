@@ -24,9 +24,9 @@ function Auth($log,$pass,$fichier)
 
 
 
-function Supprimer($date)
+function Supprimer($fichier,$date)
 {
-	$fic=fopen("./db/events.txt", "r+");
+	$fic=fopen($fichier, "r+");
 	while (!feof($fic))
 	{	
 		$ligne=fgets($fic);
