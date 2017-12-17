@@ -7,4 +7,4 @@ before_script:
 
 script:
   - cd ./public_html/tests
-  - phpunit --testdox-html coverage.html --debug --verbose tests.php
+  - phpunit --covergae-html coverage.html --debug --verbose tests.php
