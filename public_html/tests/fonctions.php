@@ -1,10 +1,5 @@
 <?php
 
-function Test($a)
-{
-	return a;
-}
-
 function Auth($log,$pass,$fichier) /* Auth() function return 1 if the combination login/hash(pass) is found in the file text specified ine the last parameter, 0 else */
 {
 	$boole=0;

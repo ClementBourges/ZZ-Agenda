@@ -1,4 +1,5 @@
 199410221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;
 199510221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;
+199610221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;
 199710221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;
 199810221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;
