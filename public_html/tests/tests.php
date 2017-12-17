@@ -33,6 +33,7 @@ class Tests extends TestCase
 		$c="pirate";
 		$d="faux";
 		$this->assertEquals(Auth($c,$d,"../db/adminpass.txt"),0);
+		fwrite(STDERR, print_r("Fin des tests d'authentification \n\n\n", TRUE)); 
 	}
 	public function testFormatDate() /* format_date_heure() turn "AAAAMMDDHHHH" into an array: 1st item: "AAAA/MM/DD"  2nd item:  "HH:MM"  */
 	{
@@ -42,10 +43,7 @@ class Tests extends TestCase
 		$this->assertEquals($b[1],"14:50");
 		
 	}
-	public function fin()
-        {
-		fwrite(STDERR, print_r("Fin des tests d'authentification \n\n\n", TRUE)); 
-        }
+
 	
 	public function test_new_event_fichier_vide() /* Add an event in an empty file */
 	{
