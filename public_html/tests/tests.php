@@ -11,7 +11,7 @@ class Tests extends TestCase
 	{
 		$a=1;
 		fwrite(STDERR, print_r("\n\n\n Tests d'authentification:", TRUE));
-		$this->assertEquals($a,1);
+		$this->assertEquals(Test($a),1);
 	}
 	public function test_True_Auth_User() /* Auth() return 1 for a right login/pass combination using userpass.txt database */
 	{
