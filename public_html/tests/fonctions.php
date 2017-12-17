@@ -35,14 +35,20 @@ function Supprimer($fichier,$date) /* Delete an event in the file text whose pat
 			$arr[$tableau[0]]=$tableau[1].";".$tableau[2].";".$tableau[3].";".$tableau[4].";".$tableau[5].";"; /* Keep only the events we dont want to delete and save them into an array */
 		}
 	}
-	ksort($arr);
+	if(isset($arr))
+	{
+		ksort($arr);
+	}
 	fclose($fic);
 	$fic=fopen($fichier, "w+"); /* Erase the file */
-	foreach($arr as $key => $element)
+	if(isset($arr))
 	{
-		if ($key != "" && $element!="")
+		foreach($arr as $key => $element)
 		{
-			fwrite($fic,$key.";".$element."\n");  /* Re-write the events minus the one we wanted to delete */
+			if ($key != "" && $element!="")
+			{
+				fwrite($fic,$key.";".$element."\n");  /* Re-write the events minus the one we wanted to delete */
+			}
 		}
 	}
 	fclose($fic);
