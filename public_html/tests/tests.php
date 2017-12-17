@@ -10,7 +10,7 @@ class Tests extends TestCase
 	{
 		print "Début des tests d'authentification \n";
 	}
-	public function test_True_Auth_User()
+	public function test_True_Auth_User() /* Auth() return 1 for a good login/pass combinaison */
 	{
 		$a="machin";
 		$b="bidule";
@@ -83,7 +83,7 @@ class Tests extends TestCase
 	}
 	public function test_delete_event()
 	{
-		Supprimer("./db_test/event_seul.txt",199610221450);
+		Supprimer("./db_test/event seul.txt",199610221450);
 		$fic=fopen("./db_test/event seul.txt", "r");
 		$ligne=fgets($fic);				
 		$this->assertEquals($ligne,"199710221450;Conference;Clermont-Ferrand;Speaker;Sujet;#a82a2a;\n");
