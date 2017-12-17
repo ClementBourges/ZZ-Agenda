@@ -5,15 +5,16 @@ include('./fonctions.php');
 
 <div class="panel-group">
 <?php
-if($_SESSION['U']==1)
+if($_SESSION['U']==1) /* If user is logged in, display events */
 {
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;
-	while (!feof($fich))
+	while (!feof($fich)) /* get each line in the text file and display the event */
 		{
 		$ligne=fgets($fich);
 		if(strlen($ligne)>1)
 		{
+			/* Separate informations of the event in order to display them */
 			$tableau=explode(";",$ligne);
 			$dateheure=format_date_heure($tableau[0]);
 			$i=$i+1;
@@ -47,6 +48,7 @@ if($_SESSION['U']==1)
 }
 else
 {
+	/* Deny acess if the user isn't logged in*/
 	echo"<p>Accès refusé</p>";
 }
 ?>

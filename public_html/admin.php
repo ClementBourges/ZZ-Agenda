@@ -4,26 +4,26 @@ include('./fonctions.php');
 
 <?php
 session_start();
-extract($_GET);
-if($_SESSION['A']==1)
+extract($_GET); 
+if($_SESSION['A']==1) /* Check if user is an administrator*/
 {
-include('./header_deco.php');
-$hm=explode(":",$_POST['heure']);
-$heurmin=$hm[0].":".$hm[1];
-$datetab=explode("/",$_POST['date']);
-$dateformatee=$datetab[2]."-".$datetab[1]."-".$datetab[0];
+	include('./header_deco.php');
+	$hm=explode(":",$_POST['heure']);
+	$heurmin=$hm[0].":".$hm[1];
+	$datetab=explode("/",$_POST['date']);
+	$dateformatee=$datetab[2]."-".$datetab[1]."-".$datetab[0];
 
 ?>
 <body>
 <div class="jumbotron">
   <div class="container text-center">
 
-<?php if ($_POST['date']!="")
+<?php if ($_POST['date']!="") /* Check it is a modification of an event or a new event */
 {
 echo "<h1>$modif</h1> ";
 
 }
-else {
+else { /* Add the event, fields are pre-filled if it is a modification */
 	echo "<h1>$AjoutEve</h1>";
 } ?>
       <form action="ecriture.php?lang=<?php echo $lang; ?>" method="post" class="form-signin">
@@ -50,7 +50,7 @@ else {
 
 <?php 
 
-if ($_POST['date']!="")
+if ($_POST['date']!="") /* If it is a modification, delete the previous event and add the new */
 {
 	Supprimer($datetab[2].$datetab[1].$datetab[0].$hm[0].$hm[1]);
 	echo '
@@ -58,7 +58,7 @@ if ($_POST['date']!="")
 		<button class="btn btn-lg btn-primary btn-block" type="submit">'.$modifier.'</button>
 	      </form>' ;
 }
-else 
+else  /* Add the new event */
 {
 		echo '</div>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">'.$Ajouter.'</button>

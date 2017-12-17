@@ -9,7 +9,7 @@
 <br>
 
 <?php 
-
+	/* Close session */
 	$_SESSION['U']=0;
 	$_SESSION['A']=0;
 ?>

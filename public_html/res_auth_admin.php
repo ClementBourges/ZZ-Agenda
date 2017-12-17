@@ -11,17 +11,18 @@
 <br>
 <?php 
 include('./fonctions.php');
-
+/* Check if the login and password are in a text file */
 if (Auth($_POST["login"],$_POST["password"],"./db/adminpass.txt")==1)
 {
+ 	/* If the administrator exists, start a session */
 	$_SESSION['A']=1;
-	setcookie('ident',$_POST["login"],(time()+30*3600*24));
-	$_COOKIE['ident']=$_POST["login"];
+	setcookie('identadmin',$_POST["login"],(time()+30*3600*24));
+	$_COOKIE['identadmin']=$_POST["login"];
 	header('Location: ./agendadmin.php?lang='.$lang);
   	exit();
 }
 else
-{
+{	/* If the administrator doesn't exist deny acess */
 	echo "Accès refusé";
 }
 

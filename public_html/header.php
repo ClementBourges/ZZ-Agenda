@@ -4,15 +4,15 @@ $_SESSION['ID'] = '22';
 define('__ROOT__', dirname(__FILE__));
 $lang="fr";
 extract($_GET);
-if(isset($lang))
+if(isset($lang)) /* Include the english or french file in order to change the language */
 {
 	if ($lang=='fr')
 	{
-		require_once(__ROOT__.'/fr.php');
+		require_once(__ROOT__.'/fr.php'); /* include french file */
 	}
 	else
 	{
-		require_once(__ROOT__.'/eng.php');
+		require_once(__ROOT__.'/eng.php'); /* include english file */
 	}
 }
 ?>

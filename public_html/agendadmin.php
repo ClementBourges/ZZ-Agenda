@@ -12,17 +12,18 @@ extract($_GET);
 <?php
 
 
-if($_SESSION['A']==1)
+if($_SESSION['A']==1) /* If administrator is logged in, display events */
 {
 extract($_GET);
 if ($lang=""){echo $lang;}
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;
-	while (!feof($fich))
+	while (!feof($fich)) /* get each line in the text file and display the event */
 		{
 		$ligne=fgets($fich);
 		if(strlen($ligne)>1)
 		{
+			/* Separate informations of the event in order to display them */
 			$tableau=explode(";",$ligne);
 			$dateheure=format_date_heure($tableau[0]);
 			$i=$i+1;
@@ -75,6 +76,7 @@ if ($lang=""){echo $lang;}
 }
 else
 {
+	/* Deny acess if the user isn't an administrator */
 	echo $refus;
 }
 ?>
