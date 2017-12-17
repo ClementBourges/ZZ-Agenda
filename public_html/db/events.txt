@@ -1,2 +1,2 @@
-201712161200;Rendez -vous;Issoire;Speaker;Sujet;#804040;
-201712181530;Conférence ;Clermont-Ferrand;Speaker;Sujet;#ffff00;
+201802141430;Conférence;Toulouse;Jean Dupont;Réchauffement Climatique;#800000;
+201902020900;Cours;Clermont-Ferrand;Professeur;PHP;#eddd12;
