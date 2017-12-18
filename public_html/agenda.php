@@ -31,7 +31,7 @@ if($_SESSION['U']==1) /* If user is logged in, display events */
 			</style>
 			<div class="container" style= background-color:'.$tableau[5].';>
 			<div class="panel panel default">
-				<div class="panel-heading"><h3><i class="fa fa-calendar" aria-hidden="true"></i> '.$dateheure[0].'</h3><h3><i class="fa fa-clock-o" aria-hidden="true"></i> '.$dateheure[1].'</h3><h3>'.$tableau[1].'</h3></div>
+				<div class="panel-heading"><h3><i class="fa fa-calendar" aria-hidden="true"></i> '.$dateheure[0].'</h3><h3><i class="fa fa-clock-o" aria-hidden="true"></i> '.$dateheure[1].'</h3><h3>'.$tableau[1].'</h3><h4>'.$tableau[4].'</h4></div>
 				<div class="panel-footer">
 					<ul class = "list-group">
 	      					<li class = "list-group-item"> <i class="fa fa-map-marker"></i>

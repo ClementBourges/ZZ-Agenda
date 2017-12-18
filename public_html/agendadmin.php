@@ -15,7 +15,6 @@ extract($_GET);
 if($_SESSION['A']==1) /* If administrator is logged in, display events */
 {
 extract($_GET);
-if ($lang=""){echo $lang;}
 	$fich=fopen("./db/events.txt", "r");
 	$i=0;
 	while (!feof($fich)) /* get each line in the text file and display the event */
@@ -40,7 +39,7 @@ if ($lang=""){echo $lang;}
 			</style>
 			<div class="container" style= background-color:'.$tableau[5].';>
 			<div class="panel panel default">
-				<div class="panel-heading"><h3><i class="fa fa-calendar" aria-hidden="true"></i> '.$dateheure[0].'</h3><h3><i class="fa fa-clock-o" aria-hidden="true"></i> '.$dateheure[1].'</h3><h3>'.$tableau[1].'</h3></div>
+				<div class="panel-heading"><h3><i class="fa fa-calendar" aria-hidden="true"></i> '.$dateheure[0].'</h3><h3><i class="fa fa-clock-o" aria-hidden="true"></i> '.$dateheure[1].'</h3><h3>'.$tableau[1].'</h3><h4>'.$tableau[4].'</h4></div>
 				<div class="panel-footer">
 					<ul class = "list-group">
 	      					<li class = "list-group-item"> <i class="fa fa-map-marker"></i>
